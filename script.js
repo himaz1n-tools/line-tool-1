@@ -84,7 +84,21 @@ function generateShareLink() {
     const encodedResult = encodeURIComponent(resultText);
     const shareLink = `line://share?text=${encodedResult}`;
 
-    // 共有リンクを表示
+    // 共有リンクをボタンとして表示
+    const shareButton = document.createElement('a');
+    shareButton.href = shareLink;
+    shareButton.target = "_blank";
+    shareButton.innerHTML = "LINEで共有する";
+    shareButton.style.padding = "10px 20px";
+    shareButton.style.backgroundColor = "#007bff";
+    shareButton.style.color = "white";
+    shareButton.style.borderRadius = "4px";
+    shareButton.style.textDecoration = "none";
+    shareButton.style.marginTop = "10px";
+
+    // 共有リンクの場所にボタンを表示
     const shareLinkContainer = document.getElementById('shareLink');
-    shareLinkContainer.innerHTML = `共有リンク: <a href="${shareLink}" target="_blank">${shareLink}</a>`;
+    shareLinkContainer.innerHTML = '';  // 前のリンクを消す
+    shareLinkContainer.appendChild(shareButton);
 }
+
