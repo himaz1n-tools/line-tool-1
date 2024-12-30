@@ -30,12 +30,15 @@
             <h3>結果:</h3>
             <p id="resultText">ここに結果が表示されます</p>
             <button id="copyButton" onclick="copyToClipboard()">コピー</button>
-            <button id="shareButton" onclick="generateShareLink()">共有リンクを生成</button>
-            <div class="share-link" id="shareLink"></div>
+            <!-- LINE共有ボタン -->
+            <button id="shareButton" onclick="generateShareLink()">LINEで共有</button>
         </div>
+        
+        <div id="shareLink" style="margin-top: 20px;"></div> <!-- 共有リンクを表示するための場所 -->
     </div>
 
     <script src="script.js"></script>
 
 </body>
 </html>
+
