@@ -78,11 +78,11 @@ function copyToClipboard() {
     alert('結果をコピーしました!');
 }
 
-// 共有リンクを生成する
+// 共有リンクをLINE用に生成する
 function generateShareLink() {
     const resultText = document.getElementById('resultText').innerText;
     const encodedResult = encodeURIComponent(resultText);
-    const shareLink = window.location.href.split('?')[0] + '?result=' + encodedResult;
+    const shareLink = `line://share?text=${encodedResult}`;
 
     // 共有リンクを表示
     const shareLinkContainer = document.getElementById('shareLink');
