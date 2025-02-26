@@ -16,15 +16,15 @@ function translateUnicode() {
     document.getElementById('resultText').innerText = decryptedText;
 }
 
-// Caesar暗号化（文字ごとにシフトを変える）
+// 暗号化
 function caesarCipher(str, shift) {
     let result = '';
     for (let i = 0; i < str.length; i++) {
         let char = str[i];
 
-        // アルファベットをシフト（文字ごとに変化）
+        // アルファベットのをシフト化
         if (char.match(/[a-zA-Z]/)) {
-            const shiftValue = (i + shift) % 26; // 文字ごとに異なるシフトを適用
+            const shiftValue = (i + shift) % 26; // 文字ごとに違ったシフトを適用
             const charCode = str.charCodeAt(i);
             const base = char.match(/[a-z]/) ? 97 : 65;
             result += String.fromCharCode(((charCode - base + shiftValue) % 26 + 26) % 26 + base);
@@ -35,7 +35,7 @@ function caesarCipher(str, shift) {
     return result;
 }
 
-// 文字列をUnicode形式に変換（uを適当な文字に変化、暗号数を考慮して値を三倍）
+// 文字列をUnicode形式に変換
 function convertToUnicode(str, cipher) {
     return Array.from(str)
         .map(char => {
@@ -50,7 +50,7 @@ function convertToUnicode(str, cipher) {
         .join('/');
 }
 
-// Unicode形式をテキストに変換（xをuに戻し、暗号数で割る）
+// Unicode形式をテキストに変換
 function convertFromUnicode(unicodeStr) {
     return unicodeStr.split('/')
         .map(code => {
